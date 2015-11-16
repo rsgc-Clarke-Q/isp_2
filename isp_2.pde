@@ -5,26 +5,22 @@ PShape shape;
 
 void setup() {
   //make canvas
-  size(640, 360, P2D);
-  shape = createShape();
-  shape.beginShape();
-  shape.fill(255); //changes color of the line
-  shape.stroke(255); //changes color of the line
-  shape.strokeWeight(1); 
-  shape.vertex(0, 10);
-  shape.vertex(10, 0);
-  shape.vertex(10, 10);
-  shape.vertex(0,0);
-  shape.endShape(CLOSE);
-  
+  size(1280, 800);
+  noSmooth();
+  fill(0);
+  background(0);
 }
 
 
 void draw() {
-background(51);
-  // We can use translate to move the line
-  translate(mouseX, mouseY);
-  // Display the shape
-  shape(shape);
+  strokeWeight(50);
+  if (mousePressed) {
+    stroke(255);
+  } else {
+    noStroke();
+  }
+  line(mouseX, mouseY, mouseX, mouseY);
+  line(mouseX, mouseY, mouseX, mouseY); 
 }
+
   

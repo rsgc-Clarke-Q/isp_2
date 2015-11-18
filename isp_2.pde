@@ -40,22 +40,29 @@ void draw() {
       stroke(255, 0, 255);
     }
   }
-  if (keyPressed) { //when b is presseed it draws black
-    if (key == 'b' || key == 'B') {
-      stroke(0, 0, 0);
-    }
-  }
+
   if (keyPressed) { //when y is presseed it draws yellow
     if (key == 'y' || key == 'Y') {
       stroke(255, 255, 0);
     }
   }
- if (keyPressed) { //when w is presseed it draws white
+  if (keyPressed) { //when w is presseed it draws white
     if (key == 'w' || key == 'W') {
       stroke(255);
     }
   }
-
+  if (keyPressed) { //when d is presseed it draws black
+    if (key == 'd' || key == 'D') {
+      stroke(0, 0, 0);
+    }
+  }
+  if (keyPressed) {//when c is pressed the screen is cleared
+    if (key == 'c' || key == 'C'){
+      fill(255);
+      rect(0,0,1280,800);
+      
+    }
+  }
 
   line(mouseX, mouseY, mouseX, mouseY); //gets the line to follow the mouse
   line(mouseX, mouseY, mouseX, mouseY); //gets the line to follow the mouse

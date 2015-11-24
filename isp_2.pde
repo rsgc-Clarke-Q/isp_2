@@ -1,20 +1,25 @@
-float brushtype; 
+color c1 = color(110, 110, 110);
 
 
 void setup() {
   //make canvas
   size(1280, 800);
   noSmooth();
-  fill(0);
+  noStroke();
   background(255);
+  fill(110, 110, 110);
+  rect(1000, 0, 280, 800);
+   fill(255);
 }
 
 
 void draw() {
   
+ 
   
-   //size of the stroke
-  noStroke(); //makes the stroke clear
+ellipse(mouseX, mouseY, 40, 40); //gets the brush to follow the mouse
+
+  
   if (keyPressed) { //when r is presseed it draws red
     if (key == 'r' || key == 'R') {
       fill(255, 0, 0);
@@ -54,20 +59,23 @@ void draw() {
   if (keyPressed) { //when d is presseed it draws black
     if (key == 'd' || key == 'D') {
       fill(0, 0, 0);
-    }
+   }
   }
   if (keyPressed) {//when c is pressed the screen is cleared
-    if (key == 'c' || key == 'C'){
+    if (key == 'c' || key == 'C') {
       fill(255);
-      rect(0,0,1280,800);
-      
+      rect(0, 0, 1000, 800);
     }
-  
-    
-    
   }
   
-
-  rect(mouseX, mouseY, 50, 50); //gets the line to follow the mouse
+    
   
+  if (mouseX > 977){ // when the brush hits the grey rectangle it's brush becomes clear
+  noFill();
+  } 
+  
+} //end of void draw
+  
+void mouseClicked(){
+noFill(); //when you clikc the mouse doesnt show
 }

@@ -1,6 +1,4 @@
-float x;
-float y;
-PShape shape;
+float brushtype; 
 
 
 void setup() {
@@ -13,47 +11,49 @@ void setup() {
 
 
 void draw() {
-  strokeWeight(50); //size of the stroke
+  
+  
+   //size of the stroke
   noStroke(); //makes the stroke clear
   if (keyPressed) { //when r is presseed it draws red
     if (key == 'r' || key == 'R') {
-      stroke(255, 0, 0);
+      fill(255, 0, 0);
     }
   }
   if (keyPressed) { //when g is presseed it draws green
     if (key == 'g' || key == 'G') {
-      stroke(0, 255, 0);
+      fill(0, 255, 0);
     }
   } 
   if (keyPressed) { //when b is presseed it draws blue
     if (key == 'b' || key == 'B') {
-      stroke(0, 0, 255);
+      fill(0, 0, 255);
     }
   } 
   if (keyPressed) { //when t is presseed it draws turquoise
     if (key == 't' || key == 'T') {
-      stroke(59, 255, 233);
+      fill(59, 255, 233);
     }
   } 
   if (keyPressed) { //when p is presseed it draws purple
     if (key == 'p' || key == 'P') {
-      stroke(255, 0, 255);
+      fill(255, 0, 255);
     }
   }
 
   if (keyPressed) { //when y is presseed it draws yellow
     if (key == 'y' || key == 'Y') {
-      stroke(255, 255, 0);
+      fill(255, 255, 0);
     }
   }
   if (keyPressed) { //when w is presseed it draws white
     if (key == 'w' || key == 'W') {
-      stroke(255);
+      fill(255);
     }
   }
   if (keyPressed) { //when d is presseed it draws black
     if (key == 'd' || key == 'D') {
-      stroke(0, 0, 0);
+      fill(0, 0, 0);
     }
   }
   if (keyPressed) {//when c is pressed the screen is cleared
@@ -62,8 +62,12 @@ void draw() {
       rect(0,0,1280,800);
       
     }
+  
+    
+    
   }
+  
 
-  line(mouseX, mouseY, mouseX, mouseY); //gets the line to follow the mouse
-  line(mouseX, mouseY, mouseX, mouseY); //gets the line to follow the mouse
+  rect(mouseX, mouseY, 50, 50); //gets the line to follow the mouse
+  
 }

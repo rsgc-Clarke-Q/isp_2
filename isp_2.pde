@@ -9,7 +9,24 @@ void setup() {
   background(255);
   fill(110, 110, 110);
   rect(1000, 0, 280, 800);
-   fill(255);
+  //text for the instructions v it is in void setup so that it doesent mess with the fill of the brush
+  fill(255);
+  textSize(32);
+  text("instructions", 1055, 50); 
+  textSize(20);
+  text("press", 1075, 75);
+  text("r = red", 1075, 100);
+  text("b = blue", 1075, 125);
+  text("y = yellow", 1075, 150);
+  text("g = green", 1075, 175);
+  text("t = turquoise", 1075, 200);
+  text("p = purple", 1075, 225);
+  text("d = black", 1075, 250);
+  text("w = white", 1075, 275);
+  text("c = clear canvas", 1075, 300);
+  text("click the mouse to", 1075, 325);
+  text("make the brush clear", 1075, 350);
+
 }
 
 
@@ -70,7 +87,7 @@ ellipse(mouseX, mouseY, 40, 40); //gets the brush to follow the mouse
   
     
   
-  if (mouseX > 977){ // when the brush hits the grey rectangle it's brush becomes clear
+  if (mouseX > 978){ // when the brush hits the grey rectangle it's brush becomes clear
   noFill();
   } 
   

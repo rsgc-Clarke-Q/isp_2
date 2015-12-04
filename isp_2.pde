@@ -18,16 +18,18 @@ float brush;
 void setup() {
   //make canvas
   size(1280, 800);
-  frameRate(200); //sets frame rate
+  frameRate(300); //sets frame rate
   noSmooth();
-  noStroke();
+  
   background(255);
-  fill(c1);
-  rect(1000, 0, 280, 800);
+
+  
   //text for the instructions v it is in void setup so that it doesent mess with the fill of the brush
-  fill(255);
+  fill(10,10,10);
+  line(1000, 800, 1000, 0);
+
   textSize(32);
-  text("instructions", 1055, 50); 
+  text("instructions", 1075, 50); 
   textSize(20);
   text("press", 1075, 75);
   text("r = red", 1075, 100);
@@ -43,14 +45,18 @@ void setup() {
   text("o = orange", 1075, 350);
   text("s = random colour", 1075, 375);
   text("c = clear canvas", 1075, 400);
-  text("Click the mouse to", 1075, 425);
-  text("make the brush clear.", 1075, 450);
-  text("Hold 1 to make", 1075, 475);
-  text("the brush bigger.", 1075, 500);
-  text("Hold 2 to make", 1075, 525);
-  text("the brush smaller.", 1075, 550);
+  text("Click the mouse to", 1075, 450);
+  text("make the brush clear.", 1075, 475);
+  text("Hold 1 to make", 1075, 525);
+  text("the brush bigger.", 1075, 550);
+  text("Hold 2 to make", 1075, 600);
+  text("the brush smaller.", 1075, 625);
+  text("Once the centre of", 1075, 675);
+  text("the brush hits the", 1075, 700);
+  text("line it becomes clear", 1075, 725);
+  noFill();
+  noStroke();
   //text();
-
 }
 
 
@@ -105,7 +111,11 @@ void draw() {
   if (keyPressed) {//when c is pressed the screen is cleared
     if (key == 'c' || key == 'C') {
       fill(c8);
-      rect(0, 0, 1000, 800);
+      rect(0, 0, 1072, 800);
+      stroke(c9);
+      line(1000, 800, 1000, 0);
+      noStroke();
+
     }
   }
   if (keyPressed) { //when g is presseed it draws Grey
@@ -125,7 +135,7 @@ void draw() {
   }
   if (keyPressed) { //when s is presseed it picks a random color 
     if (key == 's' || key == 'S') {
-      fill(c13);
+      fill(color(random(255), random(255), random(255)));
     }
   }
   if (mouseX > 998) { // when the brush hits the grey rectangle it's brush becomes clear
@@ -133,32 +143,30 @@ void draw() {
   } 
   if (keyPressed) { //when 1 is held the brush gets bigger
     if (key == '1') {
-       x1 = x1 + 0.7;
-       y1 = y1 + 0.7;
+      x1 = x1 + 0.7;
+      y1 = y1 + 0.7;
     }
   }
-    if (keyPressed) { //when 2 is held the brush gets smaller
+  if (keyPressed) { //when 2 is held the brush gets smaller
     if (key == '2') {
-       x1 = x1 - 0.7;
-       y1 = y1 - 0.7;
+      x1 = x1 - 0.7;
+      y1 = y1 - 0.7;
     }
-    }
-  if(y1 < 1) { // makes sure that the brush doesnt go into negative numbers
+  }
+  if (y1 < 1) { // makes sure that the brush doesnt go into negative numbers
     y1 = 1;
   }
-  if(x1 < 1) { // makes sure that the brush doesnt go into negative numbers
-   x1 = 1; 
+  if (x1 < 1) { // makes sure that the brush doesnt go into negative numbers
+    x1 = 1;
   }
-  if(y1 > 200) { // makes sure that the brush doesnt get too big
-    y1 = 200;
+  if (y1 > 150) { // makes sure that the brush doesnt get too big
+    y1 = 150;
   }
-  if(x1 > 200) { // makes sure that the brush doesnt go into negative numbers
-   x1 = 200; 
+  if (x1 > 150) { // makes sure that the brush doesnt get too big
+    x1 = 150;
   }
-  
-  
-  } //end of void draw
+} //end of void draw
 
-  void mouseClicked() {
-    noFill(); //when you click the mouse, the brush becomes clear
-  }
+void mouseClicked() {
+  noFill(); //when you click the mouse, the brush becomes clear
+}

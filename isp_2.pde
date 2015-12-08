@@ -18,7 +18,7 @@ float brush;
 void setup() {
   //make canvas
   size(1280, 800);
-  frameRate(300); //sets frame rate
+  frameRate(200); //sets frame rate
   noSmooth();
   
   background(255);
@@ -26,7 +26,7 @@ void setup() {
   
   //text for the instructions v it is in void setup so that it doesent mess with the fill of the brush
   fill(10,10,10);
-  line(1000, 800, 1000, 0);
+  line(985, 800, 985, 0);
 
   textSize(32);
   text("instructions", 1075, 50); 
@@ -45,15 +45,17 @@ void setup() {
   text("o = orange", 1075, 350);
   text("s = random colour", 1075, 375);
   text("c = clear canvas", 1075, 400);
-  text("Click the mouse to", 1075, 450);
-  text("make the brush clear.", 1075, 475);
-  text("Hold 1 to make", 1075, 525);
-  text("the brush bigger.", 1075, 550);
-  text("Hold 2 to make", 1075, 600);
-  text("the brush smaller.", 1075, 625);
-  text("Once the centre of", 1075, 675);
-  text("the brush hits the", 1075, 700);
-  text("line it becomes clear", 1075, 725);
+  text("k = outline", 1075, 425);
+  text("v = no outline", 1075, 450);
+  text("Click the mouse to", 1075, 485);
+  text("make the brush clear.", 1075, 510);
+  text("Hold 1 to make", 1075, 545);
+  text("the brush bigger.", 1075, 570);
+  text("Hold 2 to make", 1075, 610);
+  text("the brush smaller.", 1075, 635);
+  text("Once the centre of", 1075, 670);
+  text("the brush hits the", 1075, 695);
+  text("line it becomes clear", 1075, 720);
   noFill();
   noStroke();
   //text();
@@ -118,9 +120,20 @@ void draw() {
 
     }
   }
-  if (keyPressed) { //when g is presseed it draws Grey
+  if (keyPressed) { //when e is presseed it draws Grey
     if (key == 'e' || key == 'E') {
       fill(c10);
+    }
+  }
+  if (keyPressed) { //when k is presseed it removes the stroke sround each circle
+    if (key == 'v' || key == 'V') {
+     noStroke();
+    }
+    
+  }
+  if (keyPressed) { //when k is presseed it makes a stroke sround each circle
+    if (key == 'k' || key == 'K') {
+      stroke(1);
     }
   }
   if (keyPressed) { //when P is presseed it draws Pink
@@ -138,7 +151,7 @@ void draw() {
       fill(color(random(255), random(255), random(255)));
     }
   }
-  if (mouseX > 998) { // when the brush hits the grey rectangle it's brush becomes clear
+  if (mouseX > 985.5) { // when the brush hits the black line it becomes clear
     noFill();
   } 
   if (keyPressed) { //when 1 is held the brush gets bigger

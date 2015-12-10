@@ -8,7 +8,7 @@ color c7 = color(255, 255, 0);//yellow
 color c8 = color(255);//white
 color c9 = color(0);//black
 color c10 = color(110, 110, 110);//grey
-color c11 = color(255, 50, 150);//pink
+color c11 = color(255, 105, 180);//pink
 color c12 = color(255, 165, 0);//orange
 color c13 = color(random(255), random(255), random(255));//random colour
 float x1 = 40;
@@ -18,16 +18,17 @@ float brush;
 void setup() {
   //make canvas
   size(1280, 800);
-  frameRate(200); //sets frame rate
+  frameRate(250); //sets frame rate
   noSmooth();
   
   background(255);
 
   
   //text for the instructions v it is in void setup so that it doesent mess with the fill of the brush
-  fill(10,10,10);
+
   line(985, 800, 985, 0);
 
+    fill(10, 10, 10);
   textSize(32);
   text("instructions", 1075, 50); 
   textSize(20);
@@ -44,19 +45,22 @@ void setup() {
   text("p = pink", 1075, 325);
   text("o = orange", 1075, 350);
   text("s = random colour", 1075, 375);
-  text("c = clear canvas", 1075, 400);
-  text("k = outline", 1075, 425);
-  text("v = no outline", 1075, 450);
-  text("Click the mouse to", 1075, 485);
-  text("make the brush clear.", 1075, 510);
-  text("Hold 1 to make", 1075, 545);
-  text("the brush bigger.", 1075, 570);
-  text("Hold 2 to make", 1075, 610);
-  text("the brush smaller.", 1075, 635);
-  text("Once the centre of", 1075, 670);
-  text("the brush hits the", 1075, 695);
-  text("line it becomes clear", 1075, 720);
+  text("n = random shade", 1075, 400);
+  text("c = clear canvas", 1075, 425);
+  text("k = outline", 1075, 450);
+  text("v = no outline", 1075, 475);
+  text("Click the mouse to", 1075, 510);
+  text("make the brush clear.", 1075, 535);
+  text("Hold 1 to make", 1075, 570);
+  text("the brush bigger.", 1075, 595);
+  text("Hold 2 to make", 1075, 630);
+  text("the brush smaller.", 1075, 655);
+  text("Once the centre of", 1075, 690);
+  text("the brush hits the", 1075, 715);
+  text("line it becomes clear", 1075, 740);
+
   noFill();
+  
   noStroke();
   //text();
 }
@@ -153,6 +157,7 @@ void draw() {
   }
   if (mouseX > 985.5) { // when the brush hits the black line it becomes clear
     noFill();
+    noStroke();
   } 
   if (keyPressed) { //when 1 is held the brush gets bigger
     if (key == '1') {
@@ -165,6 +170,13 @@ void draw() {
       x1 = x1 - 0.7;
       y1 = y1 - 0.7;
     }
+    
+  }
+    if (keyPressed) { //when n is presse the brush changes into a random shade
+    if (key == 'n' || key == 'N') {
+      fill(random(255));
+    }
+    
   }
   if (y1 < 1) { // makes sure that the brush doesnt go into negative numbers
     y1 = 1;
@@ -178,8 +190,10 @@ void draw() {
   if (x1 > 150) { // makes sure that the brush doesnt get too big
     x1 = 150;
   }
+  
 } //end of void draw
 
 void mouseClicked() {
   noFill(); //when you click the mouse, the brush becomes clear
+  noStroke();
 }
